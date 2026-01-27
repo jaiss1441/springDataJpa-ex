@@ -18,4 +18,9 @@ public class StudentController {
     public String saveStudent(@RequestBody StudentDto studentDto){
         return studentService.addStudent(studentDto);
     }
+
+    @GetMapping("/student{id}")
+    public String findStudent(){
+        return studentService.findStudent();
+    }
 }
