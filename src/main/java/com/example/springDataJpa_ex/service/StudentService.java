@@ -22,4 +22,7 @@ public class StudentService {
         studentRepo.save(student1);
         return "Student saved successfully";
     }
+
+    public String findStudent() {
+    }
 }
