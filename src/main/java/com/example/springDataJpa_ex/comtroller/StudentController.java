@@ -15,12 +15,17 @@ public class StudentController {
 
     @PostMapping("/student")
     @ResponseStatus(HttpStatus.OK)
-    public String saveStudent(@RequestBody StudentDto studentDto){
+    public String saveStudent(@RequestBody StudentDto studentDto) {
         return studentService.addStudent(studentDto);
     }
 
     @GetMapping("/student{id}")
-    public String findStudent(){
+    public String findStudent() {
         return studentService.findStudent();
+    }
+
+    @Update
+    public String updatedStudent() {
+
     }
 }
