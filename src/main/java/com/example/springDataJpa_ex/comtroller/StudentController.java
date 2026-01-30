@@ -24,8 +24,5 @@ public class StudentController {
         return studentService.findStudent();
     }
 
-    @Update
-    public String updatedStudent() {
 
-    }
 }
