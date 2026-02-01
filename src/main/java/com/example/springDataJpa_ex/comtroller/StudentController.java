@@ -24,5 +24,8 @@ public class StudentController {
         return studentService.findStudent();
     }
 
-    @PutMapping
+    @PutMapping("/student{id}")
+    public String updateStudent(){
+        return studentService.updateStudent();
+    }
 }
