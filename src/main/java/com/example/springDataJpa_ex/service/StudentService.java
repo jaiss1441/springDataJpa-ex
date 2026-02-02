@@ -25,4 +25,7 @@ public class StudentService {
 
     public String findStudent() {
     }
+
+    public String updateStudent() {
+    }
 }
