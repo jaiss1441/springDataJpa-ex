@@ -27,5 +27,6 @@ public class StudentService {
     }
 
     public String updateStudent() {
+        return studentRepo.updateStudent();
     }
 }
