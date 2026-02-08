@@ -1,10 +1,13 @@
 package com.example.springDataJpa_ex.comtroller;
 
 import com.example.springDataJpa_ex.dto.StudentDto;
+import com.example.springDataJpa_ex.model.Student;
 import com.example.springDataJpa_ex.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 
@@ -19,13 +22,13 @@ public class StudentController {
         return studentService.addStudent(studentDto);
     }
 
-    @GetMapping("/student{id}")
-    public String findStudent() {
-        return studentService.findStudent();
+    @GetMapping("/student/{id}")
+    public Optional<Student> findStudent(@PathVariable int id) {
+        return studentService.findStudent(id);
     }
 
-    @PutMapping("/student{id}")
-    public String updateStudent(){
-        return studentService.updateStudent();
-    }
+//    @PutMapping("/student{id}")
+//    public String updateStudent(){
+//        return studentService.updateStudent();
+//    }
 }

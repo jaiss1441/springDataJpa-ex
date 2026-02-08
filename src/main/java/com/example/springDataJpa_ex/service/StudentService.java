@@ -6,6 +6,8 @@ import com.example.springDataJpa_ex.repo.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class StudentService {
 
@@ -23,10 +25,11 @@ public class StudentService {
         return "Student saved successfully";
     }
 
-    public String findStudent() {
+    public Optional<Student> findStudent(int id) {
+        return studentRepo.findById(id);
     }
 
-    public String updateStudent() {
-        return studentRepo.updateStudent();
-    }
+//    public String updateStudent() {
+//        return studentRepo.updateStudent();
+//    }
 }
