@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,13 +23,23 @@ public class StudentController {
         return studentService.addStudent(studentDto);
     }
 
-    @GetMapping("/student/{id}")
+
+    @GetMapping("/student")
+    public List<Student> viewAllStudent(){
+        return studentService.viewAllStudent();
+    }
+    @GetMapping("/student/id/{id}")
     public Optional<Student> findStudent(@PathVariable int id) {
         return studentService.findStudent(id);
     }
 
-//    @PutMapping("/student{id}")
-//    public String updateStudent(){
-//        return studentService.updateStudent();
+    @GetMapping("/student/name/{name}")
+    public List<Student> findBySName(@PathVariable("name") String name){
+        return studentService.findBySName(name);
+    }
+
+//    @PutMapping("/student/{id}")
+//    public String updateStudent(@PathVariable int id){
+//        return studentService.updateStudent(id);
 //    }
 }

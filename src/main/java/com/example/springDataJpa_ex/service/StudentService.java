@@ -5,7 +5,9 @@ import com.example.springDataJpa_ex.model.Student;
 import com.example.springDataJpa_ex.repo.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +30,20 @@ public class StudentService {
     public Optional<Student> findStudent(int id) {
         return studentRepo.findById(id);
     }
+
+    public List<Student> viewAllStudent() {
+        return studentRepo.findAll();
+    }
+
+    public List<Student> findBySName(@PathVariable String name ){
+        return studentRepo.findBysname(name);
+    }
+
+//    public String updateStudent(int id) {
+//        Optional<Student> s = studentRepo.findById(id);
+//
+//
+//    }
 
 //    public String updateStudent() {
 //        return studentRepo.updateStudent();
