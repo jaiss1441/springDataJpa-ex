@@ -38,8 +38,13 @@ public class StudentController {
         return studentService.findBySName(name);
     }
 
-//    @PutMapping("/student/{id}")
-//    public String updateStudent(@PathVariable int id){
-//        return studentService.updateStudent(id);
-//    }
+    @PutMapping("/student/{id}")
+    public Student updateStudent(@PathVariable int id ,@RequestBody StudentDto studentDto ){
+        return studentService.updateStudent(id,studentDto);
+    }
+
+    @DeleteMapping("/student/{id}")
+    public void deleteStudent(@PathVariable int id){
+       studentService.deleteStudent(id);
+    }
 }

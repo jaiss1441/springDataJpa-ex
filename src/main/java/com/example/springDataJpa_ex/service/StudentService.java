@@ -39,6 +39,20 @@ public class StudentService {
         return studentRepo.findBysname(name);
     }
 
+    public Student updateStudent(int id, StudentDto studentDto) {
+        Student student = studentRepo.findById(id).orElseThrow(() -> new RuntimeException("Student not found" + id));
+        student.setMarks(studentDto.getMarks());
+        student.setSname(studentDto.getSname());
+
+        return studentRepo.save(student);
+    }
+
+    public void deleteStudent(int id) {
+        Student student = studentRepo.findById(id).orElseThrow(()-> new RuntimeException("Student not found" + id));
+
+        studentRepo.delete(student);
+    }
+
 //    public String updateStudent(int id) {
 //        Optional<Student> s = studentRepo.findById(id);
 //
